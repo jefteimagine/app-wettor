@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "Wettor",
+    "slug": "wettor",
+    "privacy": "public",
+    "sdkVersion": "35.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#999999"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.wettor.appwettor"
+    },
+    "android": {
+      "package": "com.wettor.appwettor"
+    },
+    "notification":{
+      "icon": "./assets/iconpin.png",
+      "iosDisplayInForeground": true
+    }
+  }
+}
