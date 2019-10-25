@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity, AsyncStorage } 
 import Header from '../../components/header';
 
 import GlobalStyles from '../../constants/GlobalStyles';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default function Processos({ navigation }) {
   
@@ -15,6 +16,11 @@ export default function Processos({ navigation }) {
     loadProcessos();
   }, []);
 
+  
+  handleDeslogar = async () =>  {
+    await AsyncStorage.removeItem('userToken');
+    navigation.navigate('Index');
+  }
  
   loadProcessos = async () => {
     const userToken = await AsyncStorage.getItem('userToken');
@@ -25,7 +31,9 @@ export default function Processos({ navigation }) {
     <SafeAreaView style={GlobalStyles.droidSafeArea}>
       <Header handleIndex={() => navigation.navigate('Index')} />
       <View style={styles.conteudo}>
-        <Text>Teste Processos</Text>
+        <TouchableOpacity onPress={handleDeslogar} style={styles.button}>
+          <Text style={styles.textButton}>Deslogar</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
     </>
@@ -42,5 +50,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     alignItems: 'center',
-  }
+  },
+  button:{
+    backgroundColor:'#eb8034',
+    paddingVertical:15,
+    width:160,
+    marginTop:30,
+    alignItems:'center'
+  },
+  textButton:{
+    color:'#fff',
+    fontWeight:'bold'
+  },
 }); 
